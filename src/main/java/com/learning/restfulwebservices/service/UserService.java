@@ -38,7 +38,8 @@ public class UserService {
 
     public User getUser(long id) {
         User user = USER_MAP.get(id);
-        if (user == null) throw new UserNotFoundException(Error.USER_NOT_FOUND_BY_ID);
+        if (user == null)
+            throw new UserNotFoundException(Error.USER_NOT_FOUND_BY_ID);
         return user;
     }
 

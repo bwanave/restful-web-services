@@ -33,7 +33,9 @@ public class UserController {
     @PostMapping(path = "/api/v1/users")
     public ResponseEntity<URI> createUser(@RequestBody User user) {
         User savedUser = userService.createUser(user);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedUser.getId()).toUri();
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+                                             .buildAndExpand(savedUser.getId())
+                                             .toUri();
         return ResponseEntity.created(uri).build();
     }
 
